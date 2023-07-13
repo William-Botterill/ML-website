@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="{% static '/css/learnLR.css' %}">
+</head>
+
+<h1>Polynomial Regression</h1>
+
+<p>Now, we have the same setting as in the one in Linear Regression, previously outlined. Before, we only had a line to fit our model, but what if we had a polynomial instead? We would be able to fit a curve like this:</p>
+
+<img class="graphImage" src="{% static '/images/Picture1.png' %}" alt="">
+
+<p>The principle behind polynomial regression is very similar to the linear regression’s one. We have a cost function that we try to minimise, but this time our prediction function is a polynomial. So, in this case, we take the engine size and we build a polynomial of degree n (to be specified), let’s say n=2, and fit the function f(x)=ax^2+bx+c in its parameters a, b, c. Concretely, we are looking for some values of a, b, c that minimise the errors in our predictions.</p>
+
+<img class="graphImage" src="{% static '/images/Picture5.png' %}" alt="">
+
+<p>If you are interested in how such values are calculated, read the “advanced topics” section of this chapter.</p>
+{% endblock %}

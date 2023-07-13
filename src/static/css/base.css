@@ -1,0 +1,46 @@
+
+
+/*@import "topHeader.css";
+@import "topNav.css";
+@import "sideNav.css";
+@import "footer.css";*/
+
+
+
+* {
+box-sizing: border-box;
+}
+
+/* Column container for side and main */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sideNav{
+  background-color: #56E3D4;
+  padding-right: 5px;
+
+}
+/* Create two unequal columns that sits next to each other */
+/* Side content on sideNav.css */
+
+/* Main column */
+.main {
+  /* Set the width of the main content */
+  background-color: white; /* White background color */
+  padding: 20px; /* Some padding */
+  max-width: 60%;
+  
+  /*min-width: 10%;*/
+
+
+
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other (ideal for phones) */
+
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+
+}

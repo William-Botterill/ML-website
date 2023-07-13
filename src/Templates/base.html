@@ -1,0 +1,49 @@
+{% load static %}
+<html>
+<head>
+  <title>Learn ML</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static "css/base.css" %}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static "/css/sideNav.css" %}">
+  <link rel="stylesheet" href="{% static "/css/topNav.css" %}">
+  <link rel="stylesheet" href="{% static "/css/topHeader.css" %}">
+  <link rel="stylesheet" href="{% static "/css/footer.css" %}">
+
+  <script type="text/javascript">
+    funtion ToReplace(){
+    //blank
+    }
+  </script>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+  <header>
+    {% include 'topHeader.html' %}
+    {% include 'topNav.html' %}
+  </header>
+  <div class="row">
+    <div class="sideNav">
+      {% include 'sideNav.html' %}
+    </div>
+    <div class="main">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+      {% block content %}
+      Replace me
+      {% endblock %}
+    </div>
+  </div>
+  <footer>
+    <div class="footer">
+      {% include 'footer.html' %}
+    </div>
+  </footer>
+</body>
+</html>

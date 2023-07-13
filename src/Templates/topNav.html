@@ -1,0 +1,12 @@
+<div class="topnav">
+  {% with loggedIn=request.user.is_authenticated %}
+    {% if loggedIn %}
+    <a href="{% url 'sign out page' %}">Sign Out</a>
+    {% else %}
+    <a href="{% url 'sign in page' %}">Sign In</a>
+    {% endif %}
+  {% endwith %}
+  <a href="{% url 'faq page' %}">FAQs</a>
+  <a href="{% url 'choosing page' %}">Working Environment</a>
+  <a href="{% url 'home' %}" class="left">Home</a>
+</div>

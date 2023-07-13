@@ -1,0 +1,25 @@
+form {
+	border: 0.1em solid #C0C0C0FF;
+	width: 30em;
+	border-radius: 0.5em;
+	background-color: #5AA485FF;
+	padding:2em;
+}
+
+fieldset
+{
+	background-color: lightyellow;
+	border-radius: 0.5em;
+
+	box-shadow: 0.08em 2em #ccc;
+	margin-bottom: 2em;
+}
+
+#uniqfieldset
+{
+	background-color: red;
+	border-radius: 0.5em;
+
+	box-shadow: 0.08em 10em #ccc;
+	margin-bottom: 2em;
+}

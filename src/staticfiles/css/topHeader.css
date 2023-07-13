@@ -1,0 +1,10 @@
+.topHeader {
+padding: 80px; /* some padding */
+text-align: center; /* centering the text */
+background: #56A6E3; /*  light blue background */
+color: white; /* white text color */
+}
+
+.topHeader h1 {
+font-size: 40px;
+}

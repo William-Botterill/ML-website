@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load latexify %}
+{% block content %}
+{% load static %}
+
+<head>
+
+{% include 'latexify/stylesheets.html' %}
+<h2>Linear Regression Advanced</h2>
+
+<p>Now that we have an intuitive idea of what linear regression is, let’s dive deeper into how it works. To find the best fitting line, we just need to 
+find the parameters it’s described by. Recall indeed that {% latexify '\tilde{y} = ax+b' math_inline=True %}
+x is given, and, in out example it was the engine size, and {% latexify '\tilde{y}' math_inline=True %} is our guess, i.e. 
+the CO2 emissions we are expecting given the engine size. We use the tilde symbol to distinguish it from the real y value associated with each x. But how do we determine a and b?</p>
+
+<p>There are different methods to compute them, the most notable ones are Gradient Descent and the Normal Equation.</p>
+
+<h2>Gradient Descent</h2>
+
+<p>Let’s first look at the vector equation for y = ax + b. Let’s put all of our examples, let’s say we have m of them, into a matrix and let’s add a column of 
+1s to it, this is to allow the “b” term, or bias, to come into play. So if x<sub>i</sub> is the engine size for car i, our matrix looks like this: 
+<img class="matrix" src="{% static '/images/matrix1.png' %}" alt="">. Our a and b are the same for all values of X, so we can store them in a matrix like this: 
+<img class="matrix" src="{% static '/images/matrix3.png' %}" alt="">. This way we can multiply them together to get {% latexify '\tilde{y}' math_inline=True %}:
+<img class="matrix" src="{% static '/images/matrix2.png' %}" alt="">. Now that we know how to put the equation in matrix form, we can talk about the cost function. The cost (or loss) function L measures how wrong our model is. To compute that, we measure the distance between each true y and its corresponding guess y^ and sum them all together. A large L means that our model predictions have poor accuracy. </p>
+
+<p>To measure the distance between two points we can use the Euclidean distance, so that the distance between A and B is measured by {% latexify '\sqrt{A^2-B^2}' math_inline=True %}. Note that we don’t have to worry about the x coordinate as they will be identical. Recall indeed that we are measuring the distance between a point y and its corresponding prediction, where the word corresponding obviously implies that the two points have the same x (or Engine Size in our example). </p>
+
+<p>So for one car i the loss would be {% latexify '\sqrt{\tilde{y}_i^2-y_i^2}' math_inline=True %}, but we need to sum them all up to compute the total loss, therefore we write 
+{% latexify 'L=\sum_{i=1}^{m}(\tilde{y_i}^2-y_i^2)' math_inline=True %}. But {% latexify '\tilde{y_i}=X_i*\theta' math_inline=True %} where θ is the matrix containing a and b. So we can rewrite L as {% latexify 'L(\theta)=\sum_{i=1}^{m}((X_i*\theta)^2-y_i^2)' math_inline=True %} to explicit the fact that L is a function of θ.</p>
+
+<p>But L is the loss function: if we reduce it, hopefully to a minimum, we would have less error and therefore we would have a better model!</p>
+
+<p>This then becomes an optimisation where our task it to minimise the function L(θ). We do that by using the fact that the derivative (which is the gradient in just one dimension) gives us the direction of steepest ascent. Therefore, taking the opposite direction, we get the direction of steepest descent, the direction on the θ axis that makes L to decrease.</p>
+
+<p>In other words, let’s say that we at the point θ_0 and we compute the partial derivative w.r.t. a of L(θ_0). We might find it positive, therefore, after we take a small step to the left in the a axis and reaching θ_1<θ_0, we should find L(θ_1) < L(θ_0) (keeping b constant). </p>
+
+<p>The “step” size is given by the learning rate α, which is chosen arbitrarily. With bigger α, we take larger steps, but we may miss the point of minimum. With small α, we take shorter steps, but the whole process might take longer. Choosing the right α is not at all trivial. </p>
+
+<p>So the steps of gradient descent are:</p>
+
+<ol>
+    <li>Initialise θ randomly or set them all to zero.</li>
+    <li>Compute L(θ)</li>
+    <li>For each θ_j, take a step opposite to the partial derivative of L(θ) w.r.t. θ_j, let’s call it L’(θ), which is a number (and not a vector), and update your randomly initialise θ_j to be
+        θj <- θj - α*L’(θ). Here the opposite direction is given by the “-“ sign.
+    </li>
+</ol>
+
+<p>Repeat for a number N of iterations steps 2) and 3). Usually, the greater the number of iterations N, the better θ will be.</p>
+
+<h2>Normal Equation</h2>
+
+<p>We can also compute the best θ (the θ that minimises L) by using the normal equation. It is more computationally expensive, but it’s a pseudo analytical solution. With this formula, we have:
+    {% latexify '\theta=(X_T*X)^{-1}X_T*y' math_inline=True %}
+    Assuming the vector notation we introduced earlier. Note that we are not guaranteed that the inverse of {% latexify 'X_T*X' math_inline=True %} exists. In this case, most software and libraries offer a pseudo inverse function.
+</p>
+
+{% include "latexify/scripts.html" %}
+{% endblock %}

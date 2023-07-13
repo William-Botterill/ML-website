@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Logistic Regression</h1>
+
+<p>This is the regression analysis to use when the dependent variable is binary. It is used to describe data to explain the relationship between a dependent binary variable and one or more norminal, ordinal, interval, or ratio-level independent variables.</p>
+
+<p>It is like linear regression however it predicts whether something is True or False instead of predicting something that is continuous such as size.</p>
+
+<p>An example of logistic regression:</p>
+
+<img src="{% static '/images/logReg.jpg' %}" alt="">
+
+<p>In this example the graph represents the probability of passing an exam against the hours of studying that one does. It is clear to see that the more likely you are to pass the exam is dependent on the hours of studying that the individual does.  There is an obvious pattern to spot, and this is the more hours a person studies the more likely they are to pass, but it does not necessarily mean if you study hard, that you will pass. The points on the graph, 0 for failed and 1 for Passed are plotted. </p>
+
+<p>Instead of a straight line like linear regression, you would be left with an S curve, the curve goes from 0 to 1. </p>
+
+<p>Therefore, you can see that logistic regression models the probability of an event occurring depending on the dependent and independent variables, these can be categorical or numerical. It allows one to estimate the probability that an event will occur, versus whether it will not occur.</p>
+{% endblock %}

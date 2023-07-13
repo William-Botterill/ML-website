@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+<h1>Polynomial Regression</h1>
+
+<h2>How this model works</h2>
+
+<p>Here we work with a dataset containing details and specifics of different cars. We will try to predict
+  each car's CO<sub>2</sub> emission, and we will use Enginesize as predictor.
+  We are using polynomial regression, and we can tweak different parameters: <br>
+  <ul>
+    <li>Degree: the degree of the polynomial</li>
+    <li>Test Size: the percentage of the data that will be reserverd for testing</li>
+    <li>Include bias: include the intercept term in the prediction function, so, if ticked, our prediction function will look like this: <br>
+      f(x,y,z) = a + P<sub>n</sub>(x,y,z), where n is the degree specified and P is a polynomial in x,y,z (our predictors)
+    <li>Normalize: if ticked, it normalises the features before training the model</li>
+    </li>
+  </ul>
+  Then we also have the metrics:
+  <ul>
+    <li>Mean absolute error: it's the sum is the average absolute difference between our prediction and the true value of the feature we are trying to predict</li>
+    <li>Residual sum of squares: it's the sum of the squared differences between our prediction and the true value of the feature we are trying to predict</li>
+    <li>R2 score: it measures how close the data are to the fitted regression curve (our prediction). It's a number between 0 and 1. The closer the 1, the better the model explains the data</li>
+  </ul>
+  If you want to know more about these parameters and metrics or want to read further into how this model works, check the learning pages!
+</p>
+
+<u>If you experience any problems, please check the FAQ first</u>
+
+<br>
+<br>
+
+
+<h2> Please enter your parameters </h2>
+
+<!--This form looks very bad :( sorry about that-->
+<form method="POST" action=""> {% csrf_token %}
+  <label>Degree: </label>
+  <input type="number" name="degree", min="1", max="10", step="1", value="2"><br>
+  <label>Test Size: </label>
+  <input type="number" name="test_size", min="0.1", max="1", step="0.1", value="0.2"> <br>
+  <label>Include Bias: </label>
+  <input type="checkbox" name="include_bias", checked="checked"> <br>
+  <label>Normalize: </label>
+  <input name="normalize" type="hidden"   value="0" /> <!--Default is false-->
+  <input name="normalize" type="checkbox" value="1" /> <br>
+  <input type="submit" value="Submit">
+</form>
+
+<br>
+
+<h2> Results </h2>
+
+<!--Things to be included in output: meanAbsoluteError, residualSumOfSquares, R2score, -->
+<!--You can get, for instance, R2score with: {{ R2score }}-->
+<!--Maybe try to align this?-->
+<p>
+    Mean absolute error: {{ meanAbsoluteError }} <br>
+Residual sum of squares: {{ residualSumOfSquares }} <br>
+               R2 score: {{ R2score }} <br>
+<img style="width: 500px;" src={% static '/images/graphs/polynomial_regression_graph.png' %}>         
+</p>
+<br>
+<br>
+
+<!--
+<textarea rows="15" cols="75">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore numquam unde doloremque quos! Nisi provident eius est ab odit. Nostrum tempore, sequi pariatur id consequuntur necessitatibus impedit tenetur! Mollitia quisquam eveniet inventore molestiae fugiat. Nemo, cupiditate! Repudiandae dolorum voluptatem facere updog eveniet explicabo doloremque in dolor laboriosam facilis magni similique debitis dicta, doloribus impedit, accusamus officiis corrupti exercitationem ipsa obcaecati atque ea nisi? Ipsam hic porro vitae nulla voluptas quidem!
+</textarea>-->
+
+
+{% endblock %}

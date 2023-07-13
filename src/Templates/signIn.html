@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+@import 'signIn.css';
+{% block content %}
+<h1>Sign in:</h1>
+<form method="" action="">
+  <div class="form_wrapper">
+  <div class="form_title">Login</div>
+  <div class="inputs_holder"><input type="text" name="Username" placeholder="Username"></div>
+  <div class="inputs_holder"><input type="text" name="Password" placeholder="Password"></div>
+  <div class="form_submit_btn"><button class="btn">Login</button></div>
+  <div class="login_link"><p>Not have an account?    <a href="{% url 'sign up page' %}">Sign up</a></p></div>
+</div>
+</form>
+
+{% endblock %}

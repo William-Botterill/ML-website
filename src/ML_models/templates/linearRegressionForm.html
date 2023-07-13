@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %} 
+<h1>Linar Regression</h1>
+
+<h2>How this model works</h2>
+
+<p>Here we work with a dataset containing details and specifics of different cars. We will try to predict
+  each car's CO<sub>2</sub> emission, and we will use Enginesize as predictor.
+  We are using polynomial regression, and we can tweak different parameters: <br>
+  <ul>
+    <li>Loss: the loss function to be used</li>
+    <li>Test Size: the percentage of the data that will be reserverd for testing</li>
+    <li>Penalty: the regularization term to be used. Defaults to ‘l2’ which is the standard regularizer for linear 
+    SVM models. ‘l1’ and ‘elasticnet’ might bring sparsity to the model (feature selection) not achievable with ‘l2’.</li>
+    <li>Alpha: constant that multiplies the regularization term. The higher the value, the stronger the regularization. 
+    Also used to compute the learning rate when set to learning_rate is set to ‘optimal’.</li>
+    <li>Fit intercept: if False, the data is assumed to be already centered. </li>
+    <li>Max iter: the maximum number of passes over the training data (aka epochs).</li>
+    <li>Shuffle: whether or not the training data should be shuffled after each epoch.</li>
+    <li>Learning rate:
+        <ul>
+            <li>‘constant’: eta = eta0</li>
+            <li>‘optimal’: eta = 1.0 / (alpha * (t + t0)) where t0 is chosen by a heuristic proposed by Leon Bottou.</li>
+            <li>‘invscaling’: eta = eta0 / pow(t, power_t)</li>
+        </ul>
+    </li>
+    <li>Eta0: the initial learning rate for the ‘constant’, ‘invscaling’ or ‘adaptive’ schedules. The default value is 0.01.</li>
+  </ul>
+  Then we also have the metrics:
+  <ul>
+    <li>Mean absolute error: it's the sum is the average absolute difference between our prediction and the true value of the feature we are trying to predict</li>
+    <li>Residual sum of squares: it's the sum of the squared differences between our prediction and the true value of the feature we are trying to predict</li>
+    <li>R2 score: it measures how close the data are to the fitted regression curve (our prediction). It's a number between 0 and 1. The closer the 1, the better the model explains the data</li>
+  </ul>
+  If you want to know more about these parameters and metrics or want to read further into how this model works, check the learning pages!
+</p>
+
+<u>If you experience any problems, please check the FAQ first</u>
+
+<br>
+<br>
+
+
+<h2> Please enter your parameters </h2>
+
+<!--This form looks very bad :( sorry about that-->
+<form method="POST" action=""> {% csrf_token %}
+  Loss:
+    <input type="radio" name="loss" id="squared_loss" value="squared_loss", checked="checked">
+    <label for="squared_loss">Squared loss</label>
+    <input type="radio" name="loss" id="huber" value="huber">
+    <label for="huber">Huber</label>
+    <input type="radio" name="loss" id="epsilon_insensitive" value="epsilon_insensitive">
+    <label for="epsilon_insensitive">Epsilon Insensitive</label>
+  <br>
+
+  <label>Test Size: </label>
+  <input type="number" name="test_size", min="0.1", max="1", step="0.1", value="0.2"> <br>
+
+  <label>Penalty: </label>
+    <input type="radio" name="penalty" id="l1" value="l1">
+    <label for="l1">L1</label>
+    <input type="radio" name="penalty" id="l2" value="l2", checked="checked">
+    <label for="l2">L2</label>
+    <input type="radio" name="penalty" id="elasticnet" value="elasticnet">
+    <label for="elasticnet">Elasticnet</label>
+  <br>
+
+  <label>Alpha: </label>
+  <input type="number" name="alpha", min="0.0001", max="2", step="0.0001", value="0.0001"> <br>
+
+  <label>Fit intercept: </label>
+  <input name="fit_intercept" type="checkbox" checked="checked"/> <br>
+
+  <label>Max iter: </label>
+  <input type="number" name="max_iter", min="1", max="5000", step="1", value="1000"> <br>
+  
+  <label>Shuffle: </label>
+  <input name="shuffle" type="checkbox" checked="checked"/> <br>
+
+  <label>Learning rate: </label>
+  <input type="radio" name="learning_rate" id="constant" value="constant">
+  <label for="constant">Constant</label>
+  <input type="radio" name="learning_rate" id="optimal" value="optimal">
+  <label for="optimal">Optimal</label>
+  <input type="radio" name="learning_rate" id="invscaling" value="invscaling" checked="checked">
+  <label for="invscaling">Invscaling</label>
+  <input type="radio" name="learning_rate" id="adaptive" value="adaptive">
+  <label for="adaptive">Adaptive</label>
+  <br>
+
+  <label>Eta0: </label>
+  <input type="number" name="eta0" min="0.0001" max="3" step="0.0001" value="0.001"> <br>
+
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+<br>
+
+<h2> Results </h2>
+
+<!--Things to be included in output: meanAbsoluteError, residualSumOfSquares, R2score, -->
+<!--You can get, for instance, R2score with: {{ R2score }}-->
+<!--Maybe try to align this?-->
+<p>
+    Mean absolute error: {{ meanAbsoluteError }} <br>
+Residual sum of squares: {{ residualSumOfSquares }} <br>
+               R2 score: {{ R2score }} <br>
+
+<img style="width: 500px;" src={% static '/images/graphs/linear_regression_graph.png' %}>
+</p>
+<br>
+<br>
+
+<!--
+<textarea rows="15" cols="75">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore numquam unde doloremque quos! Nisi provident eius est ab odit. Nostrum tempore, sequi pariatur id consequuntur necessitatibus impedit tenetur! Mollitia quisquam eveniet inventore molestiae fugiat. Nemo, cupiditate! Repudiandae dolorum voluptatem facere updog eveniet explicabo doloremque in dolor laboriosam facilis magni similique debitis dicta, doloribus impedit, accusamus officiis corrupti exercitationem ipsa obcaecati atque ea nisi? Ipsam hic porro vitae nulla voluptas quidem!
+</textarea>-->
+
+
+{% endblock %}

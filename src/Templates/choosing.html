@@ -1,0 +1,37 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="{% static '/css/choosing.css' %}">
+</head>
+<h1>Choosing Page</h1>
+<p>Here you can chose which of our Machine Learning Models that you would like to play around with. You can learn about these models by
+    entering our learning environment on the left of your screen. Otherwise, select a model and start tinkering.</p>
+<hr>
+<br>
+<div class="wrapper">
+  <a href="linearRegression/" class="buttonStuff"><span>Linear Regression</span></a>
+</div>
+<p style="text-align:left;">
+
+In statistics, polynomial regression is a form of regression analysis in which the relationship
+ between the independent variable x and the dependent variable y is modelled
+<br>
+ as an nth degree polynomial in x. Polynomial regression fits a nonlinear relationship
+  between the value of x and the corresponding conditional mean of y, denoted E(y |x).
+<br>
+  Although polynomial regression fits a nonlinear model to the data, as a statistical
+   estimation problem it is linear
+<br>
+ , in the sense that the regression function E(y | x) is
+   linear in the unknown parameters that are estimated from the data.
+<br>
+  For this reason, polynomial regression is considered to be a special case of multiple linear regression.</p>
+
+<div class="wrapper">
+  <a href="polynomialRegression/" class="buttonStuff"><span>Polynomial Regression</span></a>
+</div>
+
+{% endblock %}

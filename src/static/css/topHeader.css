@@ -1,0 +1,48 @@
+.topHeader {
+padding: 80px; /* some padding */
+text-align: center; /* centering the text */
+background: #56A6E3; /*  light blue background */
+color: white; /* white text color */
+}
+
+.topHeader h1 {
+font-size: 40px;
+}
+
+/* Maybe css for a Learn ML button on header
+.button {
+  background: #3498db;
+  width: 180px;
+  padding: 4px 0;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 3px;
+
+  p {
+   	font-family: 'Roboto';
+	  text-align: center;
+  	text-transform: uppercase;
+    color: #FFF;
+    user-select: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    border-radius: 50%;
+    background-color: darken(#f1c40f, 20%);
+    opacity: 0.4;
+    bottom: -30px;
+  }
+}
+end of button css */

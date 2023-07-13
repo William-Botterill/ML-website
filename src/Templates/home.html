@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="{% static '/css/home.css' %}">
+</head>
+<body>
+  <h1>Home Page</h1>
+  <p>We made Learn ML to make it easier to digest the beginners’ aspects of
+    Machine Learning by introducing:</p>
+  <ul>
+    <li>A simple Working model for you to tinker with</li>
+    <li>Clear documentation to work through</li>
+    <li>Quiz content to build your recall knowledge</li>
+    <li>Further reading to advance your understanding</li>
+  </ul>
+  <p>Take your time to get used to each stage of the learning program and take
+    in the concepts so that your knowledge is preserved for the area of machine
+     learning you would like to specialise. The best way to progress is
+     confidently!</p>
+  <h2>Uses of machine learning</h2>
+  <p>As computers have evolved to be smarter than ever before, being able to
+    beat Chess Grand Masters and simulate vehicle landings on Mars, one of the
+    most exciting new opportunities has been using machine learning to predict
+    and understand data in all forms such as images, voices to numbers in a
+    table! </p>
+  <p>Due to a huge delay in the transfer of signals between Mars and Earth AI
+    had to be used on Perseverance to allow for it to land safely.
+     As shown in this clip:</p>
+  <iframe class="video" height="350" width="600"
+        src="https://www.youtube.com/embed/rzmd7RouGrM">
+  </iframe>
+</body>
+
+{% endblock %}

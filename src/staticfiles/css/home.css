@@ -1,0 +1,59 @@
+.homepage >h1 {
+      text-align: center;
+    margin: 10px;
+      padding 5px;
+      background-color: lightblue;
+    }
+    .learn{
+      margin: 0;
+      padding: 5px;
+      background-color: lightblue;
+}
+.learn >h6 {
+  margin: 10px
+  padding: 5px
+}
+
+.video{
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li{
+  font-size: 25px;
+}
+
+p{
+  font-size: 25px;
+}
+
+.emailsize > h3 {
+  color:black
+}
+
+.right {
+  text-align: right;
+}
+
+.left{
+  text-align: right;
+}
+
+img1 {
+  float: left;
+}
+
+img2 {
+  float: right;
+}
+
+.footer{
+  text-align: center;
+  padding: 3px;
+  background-color: mediumpurple;
+  color: black;
+}

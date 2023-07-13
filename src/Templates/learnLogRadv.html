@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Logistic Regression Advanced</h1>
+
+<p>Now that we have seen an example of logistic regression, lets dive deeper into how it works. Logistic regression can be applied to ordered categories, variables with more than 2 ordered categories like ones you often find in surveys. </p>
+
+<h3>Logistic regression instead of linear regression:</h3>
+
+<ul>
+    <li>Using linear regression, the values that are predicted will become greater than one and less than zero the further you move along the X-axis; therefore, it will not work as a probability.</li>
+    <li>An assumption of regression is that the variance of Y is constant across al values of X. However, this is impossible with binary variables as the variance is PQ, moving towards extreme values, the variance will decrease and eventually reach 0.</li>
+</ul>
+
+<p>Another name for a logistic function is a sigmoid function, it relates the independent variable to the mean of the Dependent variable, The formula for this is given as P=(e^a+bX)/(1+e^a+bX) or given as P = 1 / ( 1+e^-(a+bX). </p>
+
+<p>Where:</p>
+
+<ul>
+  <li>P is the probability of a 1 the proportion of 1s, the mean of Y</li>
+  <li>E is the base of the natural logarithm</li>
+  <li>a and b are the parameters of the model.</li>
+</ul>
+
+<p>When X is equal to zero a is equal to P, also b changes how quick the probability changes with a changing X. Due to the relationship between X and P being nonlinear, b does not have an easy interpretation unlike in an ordinary linear regression.</p>
+
+<h3>Loss Function</h3>
+
+<p>A loss function measures a fit between a mathematical model and the data used. The parameters of the model helps minimize or maximize how efficient the fit of the model is when compared to the data being used. For a lot of these models the loss function is called maximum likelihood. A likelihood is a conditional probability (for example P(Y|X), the probability of Y given X). We can pick the parameters of said model, a and b, at random or via trial and error and then work out the likelihood of said data given those parameters. The parameters are then chosen that result in the greatest likelihood that is found</p>
+
+<h3>Odds ratio</h3>
+
+<p>Odds is the probability of an event occurring to that of an event not occurring. In logistic regression the odds of an event occurring is given by the formula:</p>
+
+<p> p/(1-p) = e^ (w0 + w1x1+…wnxn) </p>
+
+<p>The log odds is given by taking the log of the odds equation. This is used to remove the restricted range as probabilities are in the range (0-1). Log transformation therefore changes the values from negative infinity to positive infinity</p>
+
+<p>Log(p/1-p) = w0 + w1x1+…wnxn</p>
+{% endblock %}

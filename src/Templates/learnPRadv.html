@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load latexify %}
+<head>
+{% include 'latexify/stylesheets.html' %}
+  <link rel="stylesheet" href="{% static '/css/learnLR.css' %}">
+</head>
+
+<h1>Polynomial Regression Advanced</h1>
+
+<p>The mathematics behind polynomial regression is almost identical to the one behind linear regression. We indeed use gradient descent to minimise the loss function, which is defined in the same way. The only difference is in how we calculate the  y_i^.</p>
+
+<!-- The matrix doesn't work. Maybe instead we use a small picture -->
+<p>If we our data set looks like this: <img class="matrix" src="{% static '/images/matrix1.png' %}" alt="">, using the same notation and convention used previously, </p>
+
+<p>we then define a new matrix that now looks like this: <img style="width: 150px" src="{% static '/images/matrix4.png' %}" alt="">. We basically treat the </p>
+
+<p>powers of each feature, up to degree n, as different features on which we perform a multiple linear regression on. Our prediction function will be something like 
+{% latexify '\tilde{y_i}=a_o+a_1*x+...+a_n*x_i^n' math_inline=True %}</p>
+
+<p>Our weights, that we will need to fit, will be the a_j, with j representing its relation to the predictor x^j.</p>
+
+<p>Then we run gradient descent on L(θ), where θ represents the matrix containing all the a_j’s, i.e.</p>
+
+<ol>
+  <li>Initialise θ randomly or set them all to zero.</li>
+  <li>Compute L(θ)</li>
+  <li>For each θ_j, take a step opposite to the partial derivative of L(θ) w.r.t. θ_j, let’s call it L’(θ), which is a number (and not a vector), and update your randomly initialise θ_j to be
+      θj <- θj - α*L’(θ). Here the opposite direction is given by the “-“ sign.</li>
+</ol>
+
+<h2>Overfitting</h2>
+
+<p>Overfitting happens when we train a model that almost perfectly explains the data in the training dataset, but fails to generalise its predictions. Here is an example:</p>
+
+<img class="graphImage" src="{% static '/images/Picture7.jpg' %}" alt="">
+
+<p>It is clear that the blue line is not a good model, it obviously fails to generalize: a data with x =-3 would be predicted to have y=14. Nevertheless, if tested on the data used to train it, it would have an almost perfect score. This is why the dataset is usually split into two parts: train (containing the data we will train our model on) and test (containing the data we will test our model’s accuracy on). In the context of polynomial regression, a high degree makes it prone to    overfitting.</p>
+
+<h2>Underfitting</h2>
+
+<p>Underfitting is the opposite phaenomenon: the model is just not good at explaining the data. Nevertheless, the model should be always tested and judged based on its performance on the test set. </p>
+{% include "latexify/scripts.html" %}
+{% endblock %}

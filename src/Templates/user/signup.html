@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method='POST'> {% csrf_token %}
+{{ form.as_p }}
+<input type='submit' value='save' />
+</form>
+{% endblock %}
+
+<!--
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign Up Page</title>
+    <link href="main.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <form method="" action="">
+      <div class="form_wrapper">
+      <div class="logo_container">Learn ML</div>
+      <div class="form_title">Sign Up</div>
+      <div class="inputs_holder"><input type="text" name="Username" placeholder="Username"></div>
+      <div class="inputs_holder"><input type="text" name="Email" placeholder="Email"></div>
+      <div class="inputs_holder"><input type="text" name="Password" placeholder="Password"></div>
+      <div class="inputs_holder"><input type="text" name="Confirm Password" placeholder="Confirm Password"></div>
+      <div class="form_submit_btn"><button class="btn">Sign up</button></div>
+      <div class="login_link"><p>Already have an account?    <a href="login.html">Login</a></p></div>
+
+      </div>
+    </form>
+  </body>
+</html>
+-->

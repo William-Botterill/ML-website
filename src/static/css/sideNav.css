@@ -1,0 +1,89 @@
+/* Sidebar/left column */
+a:link {
+  color: rgb(80, 45, 161);
+  text-align: center;
+  padding: 2px;
+  display: block;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(80, 45, 161);
+  text-align: center;
+  padding: 2px;
+  display: block;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(29, 201, 231);
+  text-align: center;
+  padding: 2px;
+  display: block;
+  text-decoration: none;
+}
+
+a:active {
+  color: rgb(31, 31, 153);
+  text-align: center;
+  padding: 2px;
+  display: block;
+  text-decoration: none;}
+
+
+/*
+.sideNav{
+  background-color: #56E3D4;
+  float: left;
+  display: block;
+}*/
+/*
+.sideTitle{
+  font-size: 16px;
+  position: absolute;
+}
+*/
+
+
+.container {
+
+font-family: "Verdana";
+font-size: 18px;
+display:grid;
+grid-template-columns:
+1fr 300px 1fr;
+                                        grid-template-rows:
+15px
+65px
+65px
+65px
+65px
+65px
+65px
+65px
+65px
+1fr;
+
+grid-template-areas:
+". . ."
+". object1 ."
+". object2 ."
+". object3 ."
+". object4 ."
+". object5 ."
+". object6 ."
+". object7 ."
+". object8 ."
+". . .";
+
+
+}
+
+.object1 {grid-area:object1; display: flex; align-items: center; justify-content: center; border-left: 2px solid rgb(174, 138, 190); background-color: rgb(96, 238, 189); margin: 4px;}
+.object2 {grid-area:object2; display: flex; align-items: center; justify-content: center; border-left: 2px solid rgb(174, 138, 190); background-color: rgb(96, 238, 189); margin: 4px;}
+.object3 {grid-area:object3; display: flex; align-items: center; justify-content: center; border-left: 2px solid rgb(174, 138, 190); background-color: rgb(96, 238, 189); margin: 4px;}
+.object4 {grid-area:object4; display: flex; align-items: center; justify-content: center; border-left: 2px solid rgb(174, 138, 190); background-color: rgb(96, 238, 189); margin: 4px;}
+.object5 {grid-area:object5; display: flex; align-items: center; justify-content: center; border-left: 2px solid rgb(174, 138, 190); background-color: rgb(96, 238, 189); margin: 4px;}
+.object6 {grid-area:object6; display: flex; align-items: center; justify-content: center; border-left: 2px solid rgb(174, 138, 190); background-color: rgb(96, 238, 189); margin: 4px;}
+.object7 {grid-area:object7; display: flex; align-items: center; justify-content: center; border-left: 2px solid rgb(174, 138, 190); background-color: rgb(96, 238, 189); margin: 4px;}
+.object8 {grid-area:object8; display: flex; align-items: center; justify-content: center; border-left: 2px solid rgb(174, 138, 190); background-color: rgb(96, 238, 189); margin: 4px;}

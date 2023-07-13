@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="{% static '/css/learnLR.css' %}">
+</head>
+
+<h2>Linear Regression</h2>
+
+<p>Imagine that you have dataset with multiple cars, and about these cars you know their CO2 Emissions and the size of their engine. You start noticing that there is a certain correlation between the two variables (or “features”), so you decide to plot them and obtain a graph similar to this: </p>
+
+<img class="graphImage" src="{% static '/images/Picture1.png' %}" alt="">
+
+<p>It seems reasonable to assert that they are linearly (positively) correlated, i.e., by increasing the Engine Size, Emissions will increase as well.</p>
+
+<p>Now how many CO2 emissions would you guess that a car with an Engine size of 7 have? You probably guessed something around 350, 400, and it seems totally reasonable, but why? </p>
+
+<p>This is because you “saw” an invisible line that cuts through the scattered data, that approximates its flow, something like this:</p>
+
+<img class="graphImage" src="{% static '/images/Picture2.png' %}" alt="">
+
+<p>This line indeed “minimises the error”. If you calculate the distance from each data point to the line, and sum them up altogether, you then have calculated “the error”. This particular red line is the one for which the error, the value just calculated, is the smallest possible value among all line that you could have drawn.</p>
+
+<p>If you are interested in how such line is calculated, read the “advanced topics” section of this chapter.</p>
+
+<p>We have now built a linear model that predicts the CO2 emissions of a car by just knowing the size of the engine of this car. Of course our model will not be perfect, and there exists a number of metrics that can help us assess the accuracy of our model. For example, the “r2 score”: the higher it is, the better.</p>
+
+{% endblock %}
+

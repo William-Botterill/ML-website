@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href="{% static '/css/quiz.css' %}">
+</head>
+  <body>
+    <form action="">
+      <table>
+        <th>
+          <td><img src="" alt=""></td>
+        </th>
+        <tr>
+          <th>
+            <h1>Quiz for polynomial regression</h1>
+          </th>
+        </tr>
+        <tr>
+          <td>Question 1: In polynomial regression, it's always a good idea to increase the degree of the polynomial to get better accuracy</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER1" id="A2a"><label for="A2a">True</label><br>
+            <input type="radio" name="ANSWER1" id="A2b"><label for="A2b">False</label><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Question 2: Polynomial regression is the exact same as multiple linear regression where each feature is a power of other features</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER2" id="B2a"><label for="B2a">True</label><br>
+            <input type="radio" name="ANSWER2" id="B2b"><label for="B2b">False</label><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Question 3: In polynomial regression, we don't have the "bias" term (the leading 1 on each feature)</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER3" id="C2a"><label for="C2a">True</label><br>
+            <input type="radio" name="ANSWER3" id="C2b"><label for="C2b">False</label><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Question 4: To get as much training examples as possible, we should train the model on the whole dataset so that we don't waste data</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER4" id="D2a"><label for="D2a">True</label><br>
+            <input type="radio" name="ANSWER4" id="D2b"><label for="D2b">False</label><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Question 5: It's a good leave some data aside (and not train our model on it) to test our model's performace</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER5" id="E2a"><label for="E2a">True</label><br>
+            <input type="radio" name="ANSWER5" id="E2b"><label for="E2b">False</label><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Question 6: How we initialize the initial weights is actually not important</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER6" id="F2a"><label for="F2a">True</label><br>
+            <input type="radio" name="ANSWER6" id="F2b"><label for="F2b">False</label><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Question 7: The train/test split should always be a 50/50 split</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER7" id="G2a"><label for="G2a">True</label><br>
+            <input type="radio" name="ANSWER7" id="G2b"><label for="G2b">False</label><br>
+          </td>
+        </tr>
+        <tr>
+          <th><input type="submit" class="new_button"></th>
+        </tr>
+        <tr>
+          <td id="Current score">Score:</td>
+        </tr>
+        <tr>
+          <td>High Score: {{ user.profile.score }}</td>
+        </tr>
+
+
+      </table>
+    </form>
+
+  </body>
+{% endblock %}

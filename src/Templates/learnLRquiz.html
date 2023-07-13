@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+
+  <link rel="stylesheet" href="{% static '/css/learnLRquiz.css' %}">
+  <script type="text/javascript" src="{% static '/css/javascript.js' %}"></script>
+</head>
+  <body>
+    <form action="">
+      <table>
+        <tr>
+          <th>
+            <h1>Quiz for linear regression</h1>
+          </th>
+        </tr>
+        <tr>
+          <td>Question 1: When we have a very large dataset, we should compute the parameters with the Normal Equation</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER1" id="A2a"><label for="A2a">True</label><br>
+            <input type="radio" name="ANSWER1" id="A2b"><label for="A2b">False</label><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Question 2: In gradient descent, the bigger the learning rate α the better, since the algorithm learns faster.</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER2" id="B2a"><label for="B2a">True</label><br>
+            <input type="radio" name="ANSWER2" id="B2b"><label for="B2b">False</label><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Question 3: When we first initialize the parameters in gradient descent, we don't care about their initial values.</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER3" id="C2a"><label for="C2a">True</label><br>
+            <input type="radio" name="ANSWER3" id="C2b"><label for="C2b">False</label><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Question 4: To predict house prizes as a function of their size is a suitable task for linear regression.</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER4" id="D2a"><label for="D2a">True</label><br>
+            <input type="radio" name="ANSWER4" id="D2b"><label for="D2b">False</label><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Question 5: To predict whether a cancer is malign or benign is a suitable task for linear regression.</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER5" id="E2a"><label for="E2a">True</label><br>
+            <input type="radio" name="ANSWER5" id="E2b"><label for="E2b">False</label><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Question 6: How is the loss function defined for linear regression?</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="ANSWER6" id="A2a"><label for="A2a">Count how many mistakes we make in our prediction</label><br>
+            <input type="radio" name="ANSWER6" id="A2b"><label for="A2b">Sum the differences of the true values and the values that we predict</label><br>
+            <input type="radio" name="ANSWER6" id="A2c"><label for="A2c">Sum the squared differences of the true values and the values that we predict</label><br>
+            <input type="radio" name="ANSWER6" id="A2d"><label for="A2d">Compute the weighted sum of the squared differences of the true values and the values that we predict</label><br>
+          </td>
+        </tr>
+        <tr>
+          <th><input type="submit" id="submitBTN"></th>
+        </tr>
+        <tr>
+          <td id="Current score">Score:</td>
+        </tr>
+        <tr>
+          <td>High Score: {{ user.profile.LRscore }}</td>
+        </tr>
+
+
+      </table>
+    </form>
+
+  </body>
+
+
+{% endblock %}
